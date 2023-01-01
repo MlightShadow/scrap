@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Account">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="sha_pass_hash" jdbcType="VARCHAR" property="shaPassHash" />
+    <result column="v" jdbcType="VARCHAR" property="v" />
+    <result column="s" jdbcType="VARCHAR" property="s" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="reg_mail" jdbcType="VARCHAR" property="regMail" />
+    <result column="joindate" jdbcType="TIMESTAMP" property="joindate" />
+    <result column="last_ip" jdbcType="VARCHAR" property="lastIp" />
+    <result column="last_attempt_ip" jdbcType="VARCHAR" property="lastAttemptIp" />
+    <result column="failed_logins" jdbcType="INTEGER" property="failedLogins" />
+    <result column="locked" jdbcType="TINYINT" property="locked" />
+    <result column="lock_country" jdbcType="VARCHAR" property="lockCountry" />
+    <result column="last_login" jdbcType="TIMESTAMP" property="lastLogin" />
+    <result column="online" jdbcType="TINYINT" property="online" />
+    <result column="expansion" jdbcType="TINYINT" property="expansion" />
+    <result column="mutetime" jdbcType="BIGINT" property="mutetime" />
+    <result column="mutereason" jdbcType="VARCHAR" property="mutereason" />
+    <result column="muteby" jdbcType="VARCHAR" property="muteby" />
+    <result column="locale" jdbcType="TINYINT" property="locale" />
+    <result column="os" jdbcType="VARCHAR" property="os" />
+    <result column="recruiter" jdbcType="INTEGER" property="recruiter" />
+    <result column="salt" jdbcType="BINARY" property="salt" />
+    <result column="verifier" jdbcType="BINARY" property="verifier" />
+    <result column="session_key_auth" jdbcType="BINARY" property="sessionKeyAuth" />
+    <result column="session_key_bnet" jdbcType="VARBINARY" property="sessionKeyBnet" />
+    <result column="totp_secret" jdbcType="VARBINARY" property="totpSecret" />
+  </resultMap>
+</mapper>
