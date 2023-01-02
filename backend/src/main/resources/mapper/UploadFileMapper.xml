@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.UploadFileMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.UploadFile">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="ext" jdbcType="VARCHAR" property="ext" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="alt" jdbcType="VARCHAR" property="alt" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="origin_name" jdbcType="VARCHAR" property="originName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+</mapper>

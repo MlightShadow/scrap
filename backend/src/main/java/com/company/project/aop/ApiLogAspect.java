@@ -41,7 +41,7 @@ public class ApiLogAspect {
     }
 
     @Before("apiLog()")
-    @TargetDataSource("amsaw")
+    @TargetDataSource("main")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -53,8 +53,8 @@ public class ApiLogAspect {
         ApiLog log = new ApiLog();
         log.setId(request_id.get());
         log.setUrl(request.getRequestURI().toString());
-        log.setHttpMethod(request.getMethod());
-        log.setClassMethod(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        log.setMethod(request.getMethod());
+        log.setHandle(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         log.setIp(getIpAddress(request));
         if (authInfo != null) {
             log.setUserId(authInfo.getId());
@@ -62,19 +62,19 @@ public class ApiLogAspect {
         }
         log.setRequestTime(new Date());
 
-        log.setParam(JSONArray.toJSONString(joinPoint.getArgs()));
+        log.setParams(JSONArray.toJSONString(joinPoint.getArgs()));
 
         apiLogService.save(log);
     }
 
-    @TargetDataSource("amsaw")
+    @TargetDataSource("main")
     @AfterReturning(returning = "ret", pointcut = "apiLog()")
     public void doAfterReturning(Object ret) throws Throwable {
         // 处理完请求，返回内容
         ApiLog log = new ApiLog();
         log.setId(request_id.get());
         log.setResponseTime(new Date());
-        log.setResult(ret.toString());
+        log.setResponse(ret.toString());
 
         apiLogService.update(log);
     }

@@ -37,9 +37,9 @@ public class ${modelNameUpperCamel}ServiceImpl extends AbstractService<${modelNa
     public ${modelNameUpperCamel} add${modelNameUpperCamel}(${modelNameUpperCamel}DTO dto){
         ${modelNameUpperCamel} ${modelNameLowerCamel} = new ${modelNameUpperCamel}();
         ${modelNameLowerCamel}.setId(uuid.getUUID());
-        ${modelNameLowerCamel}.setIsDeleted(false);
-        ${modelNameLowerCamel}.setCreateTime(new Date());
-        ${modelNameLowerCamel}.setCreator(securityContextUtil.getAuthInfo().getId());
+        ${modelNameLowerCamel}.setFlag(0);
+        // ${modelNameLowerCamel}.setCreateTime(new Date());
+        // ${modelNameLowerCamel}.setCreator(securityContextUtil.getAuthInfo().getId());
 
         int rows = this.save(${modelNameLowerCamel});
         if (rows == 1) {
@@ -66,7 +66,7 @@ public class ${modelNameUpperCamel}ServiceImpl extends AbstractService<${modelNa
     public int delete${modelNameUpperCamel}(String id){
         ${modelNameUpperCamel} ${modelNameLowerCamel} = new ${modelNameUpperCamel}();
         ${modelNameLowerCamel}.setId(id);
-        ${modelNameLowerCamel}.setIsDeleted(true);
+        ${modelNameLowerCamel}.setFlag(1);
         int rows = this.update(${modelNameLowerCamel});
         if (rows == 1) {
             return rows;

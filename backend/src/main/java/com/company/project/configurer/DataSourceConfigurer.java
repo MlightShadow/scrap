@@ -23,14 +23,14 @@ public class DataSourceConfigurer {
 
     @Bean
     @Primary
-    @ConfigurationProperties(prefix = "spring.datasource.amsaw")
+    @ConfigurationProperties(prefix = "spring.datasource.main")
     public DataSource mainDataSource() {
         return DataSourceBuilder.create().type(DruidDataSource.class).build();
     }
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.auth")
-    public DataSource authDataSource() {
+    @ConfigurationProperties(prefix = "spring.datasource.sub")
+    public DataSource subDataSource() {
         return DataSourceBuilder.create().type(DruidDataSource.class).build();
     }
 
@@ -40,8 +40,8 @@ public class DataSourceConfigurer {
     }
 
     @Bean
-    public JdbcOperations authJdbcOperations(@Qualifier("authDataSource") DataSource authDataSource) {
-        return new JdbcTemplate(authDataSource);
+    public JdbcOperations subJdbcOperations(@Qualifier("subDataSource") DataSource subDataSource) {
+        return new JdbcTemplate(subDataSource);
     }
 
     @Bean
@@ -53,8 +53,8 @@ public class DataSourceConfigurer {
     public DynamicDataSource dataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         Map<Object, Object> targetDataSources = Maps.newHashMap();
-        targetDataSources.put("amsaw", mainDataSource());
-        targetDataSources.put("auth", authDataSource());
+        targetDataSources.put("main", mainDataSource());
+        targetDataSources.put("sub", subDataSource());
 
         dynamicDataSource.setDefaultTargetDataSource(mainDataSource());
 

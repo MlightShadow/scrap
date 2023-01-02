@@ -6,15 +6,16 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
     <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="http_method" jdbcType="VARCHAR" property="httpMethod" />
-    <result column="class_method" jdbcType="VARCHAR" property="classMethod" />
-    <result column="ip" jdbcType="VARCHAR" property="ip" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
-    <result column="from_client" jdbcType="VARCHAR" property="fromClient" />
     <result column="request_time" jdbcType="TIMESTAMP" property="requestTime" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="handle" jdbcType="VARCHAR" property="handle" />
+    <result column="status" jdbcType="INTEGER" property="status" />
     <result column="response_time" jdbcType="TIMESTAMP" property="responseTime" />
-    <result column="param" jdbcType="LONGVARCHAR" property="param" />
-    <result column="result" jdbcType="LONGVARCHAR" property="result" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="from_client" jdbcType="VARCHAR" property="fromClient" />
+    <result column="params" jdbcType="LONGVARCHAR" property="params" />
+    <result column="response" jdbcType="LONGVARCHAR" property="response" />
   </resultMap>
 </mapper>
