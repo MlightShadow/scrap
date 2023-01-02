@@ -1,9 +1,9 @@
 <template>
-  <van-tabbar v-model="active">
-    <van-tabbar-item icon="home-o">常驻</van-tabbar-item>
-    <van-tabbar-item icon="search">历史查询</van-tabbar-item>
-    <van-tabbar-item icon="friends-o">今日剪报</van-tabbar-item>
-    <van-tabbar-item icon="setting-o">奖杯</van-tabbar-item>
+  <van-tabbar v-model="active" route>
+    <van-tabbar-item replace to="/home" icon="home-o">常驻</van-tabbar-item>
+    <van-tabbar-item replace to="/history" icon="search">历史查询</van-tabbar-item>
+    <van-tabbar-item replace to="/today" icon="friends-o">今日剪报</van-tabbar-item>
+    <van-tabbar-item replace to="/achievement" icon="setting-o">奖杯</van-tabbar-item>
   </van-tabbar>
 </template>
 
